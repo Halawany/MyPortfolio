@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Eslam Halawany</title>
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Eslam Halawany</h1>
+      <p class="lead text-muted">Hi, My name is Eslam and i'm a junior web developer, i enjoy playing with python and django.</p>
+      <p>
+        <a href="mailto:halawany.me@gmail.com" class="btn btn-primary my-2">Email me</a>
+        <a href="https://github.com/Halawany" target='_blank' class="btn btn-secondary my-2">GitHub</a>
+      </p>
+      <img src="{% static 'eslam.jpg' %}" height=300px>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+      	{% for job in jobs %}
+	        <div class="col-md-4">
+	          <div class="card mb-4 shadow-sm">
+	            <img src="{{ job.Image.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+	            <div class="card-body">
+	            <a href="{% url 'detail' job.id %}"
+	              <p class="card-text">{{ job.summary }}</p>
+	             </a>
+	            </div>
+	          </div>
+	        </div>
+	    {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
